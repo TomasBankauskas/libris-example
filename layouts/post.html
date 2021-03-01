@@ -7,15 +7,6 @@
       {% if page.params.image %}
       <div class="bg-img" style="background-image: url('{{ page.params.image | relative_url }}')"></div>
       {% endif %}
-
-      {% if page.params.previous_considerations %}
-      {% set previous_considerations = getData(page.params.previous_considerations) %}
-      <div class="post-meta">
-        <div><strong>Previous Considerations</strong></div>
-        {{ previous_considerations.content | markdownify }}
-      </div>
-    {% endif %}
-
       <div class="inner-sm">
         <div class="post-meta">
           <time class="published" datetime="{{page.date | date_format("%Y-%m-%d %H:%M") }}">{{ page.date | date_format("%B %d, %Y") }}</time>
@@ -30,6 +21,13 @@
     </header>
     <div class="inner-md outer">
       <div class="post-content">
+        {% if page.params.previous_considerations %}
+        {% set previous_considerations = getData(page.params.previous_considerations) %}
+        <div class="post-meta">
+          <div><strong>Previous Considerations</strong></div>
+          {{ previous_considerations.content | markdownify }}
+        </div>
+        {% endif %}
         {{ page.content }}
       </div><!-- .post-content -->
     </div><!-- .inner-md -->
