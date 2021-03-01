@@ -128,7 +128,6 @@ models:
     type: data
     label: Reference Example
     folder: example
-    labelField: id
     fields:
       - type: markdown
         name: content
